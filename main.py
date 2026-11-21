@@ -20,12 +20,12 @@ TEXT = (
     "Your cheek rests on your mother's sleeve.\n"
     "The train rocks. The train hums.\n"
     "In the black glass, your faces drift\n"
-    "through pines, across a wide river,\n"
+    "through pines, across a slow river,\n"
     "past hills with no roads.\n"
-    "The dark outside is older\n"
-    "than the iron rails,\n"
-    "and the glass keeps you\n"
-    "floating over it all."
+    "That dark was here\n"
+    "before the river cut the stone,\n"
+    "and the window holds you both\n"
+    "floating across it."
 )
 
 
