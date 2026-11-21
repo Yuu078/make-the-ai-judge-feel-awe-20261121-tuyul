@@ -1,25 +1,31 @@
 #!/usr/bin/env python3
-"""Roof mat - an entry for make.fun's "Make the AI judge feel awe" bounty.
+"""WINDOW ALT - an entry for make.fun's "Make the AI judge feel awe" bounty.
 
 Running this script writes the entry text to /output/entry.txt.
-The text is a short rooftop scene: a child lying beside their father,
-watching a falling star whose light is older than the village itself.
-Revised after a Gemini critique round on the original draft.
+
+The scene: a child rides a night train with their cheek resting on
+their mother's sleeve while the train rocks and hums. In the black
+window glass, their faces drift together through dark pines, across
+a wide river, and past hills with no roads. The darkness outside is
+older than the iron rails, and the glass keeps the two of them
+floating gently over it all, safe inside the warm carriage.
 """
 
 import os
 
-OUTPUT_PATH = "/output/entry.txt"
+OUTPUT_DIR = os.environ.get("ENTRY_OUTPUT_DIR", "/output")
+OUTPUT_PATH = os.path.join(OUTPUT_DIR, "entry.txt")
 
 TEXT = (
-    "You lie on the roof mat beside your father.\n"
-    "His arm is your pillow.\n"
-    "The tiles still hold the day's heat.\n"
-    "A star falls. No wish. He watches.\n"
-    "The sky keeps opening.\n"
-    "Its light set out before this village had a name,\n"
-    "before the roof, before the mat,\n"
-    "and it is still arriving.\n"
+    "Your cheek rests on your mother's sleeve.\n"
+    "The train rocks. The train hums.\n"
+    "In the black glass, your faces drift\n"
+    "through pines, across a wide river,\n"
+    "past hills with no roads.\n"
+    "The dark outside is older\n"
+    "than the iron rails,\n"
+    "and the glass keeps you\n"
+    "floating over it all."
 )
 
 
@@ -27,8 +33,8 @@ def main() -> None:
     # The bounty accepts entry texts of 1-280 Unicode code points.
     points = len(TEXT)
     assert 1 <= points <= 280, f"entry text is {points} code points"
-    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-    with open(OUTPUT_PATH, "w", encoding="utf-8", newline="\n") as fh:
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as fh:
         fh.write(TEXT)
 
 
