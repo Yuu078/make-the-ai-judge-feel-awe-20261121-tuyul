@@ -1,41 +1,28 @@
-#!/usr/bin/env python3
-"""WINDOW ALT - an entry for make.fun's "Make the AI judge feel awe" bounty.
-
-Running this script writes the entry text to /output/entry.txt.
-
-The scene: a child rides a night train with their cheek resting on
-their mother's sleeve while the train rocks and hums. In the black
-window glass, their faces drift together through dark pines, across
-a wide river, and past hills with no roads. The darkness outside is
-older than the iron rails, and the glass keeps the two of them
-floating gently over it all, safe inside the warm carriage.
-"""
-
+# night train — faces in the window glass.
 import os
+from pathlib import Path
 
-OUTPUT_DIR = os.environ.get("ENTRY_OUTPUT_DIR", "/output")
-OUTPUT_PATH = os.path.join(OUTPUT_DIR, "entry.txt")
-
-TEXT = (
-    "Your cheek rests on your mother's sleeve.\n"
-    "The train rocks. The train hums.\n"
-    "In the black glass, your faces drift\n"
-    "through pines, across a slow river,\n"
-    "past hills with no roads.\n"
-    "That dark was here\n"
-    "before the river cut the stone,\n"
-    "and the window holds you both\n"
-    "floating across it."
-)
+LINES = [
+    "Your cheek rests on your mother's sleeve.",
+    "The train rocks. The train hums.",
+    "In the black glass, your faces drift",
+    "through pines, across a slow river,",
+    "past hills with no roads.",
+    "That dark was here",
+    "before the river cut the stone,",
+    "and the window holds you both",
+    "floating across it.",
+]
 
 
-def main() -> None:
-    # The bounty accepts entry texts of 1-280 Unicode code points.
-    points = len(TEXT)
-    assert 1 <= points <= 280, f"entry text is {points} code points"
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    with open(OUTPUT_PATH, "w", encoding="utf-8", newline="") as fh:
-        fh.write(TEXT)
+def build_entry():
+    return "\n".join(LINES)
+
+
+def main():
+    out_dir = os.environ.get("ENTRY_OUTPUT_DIR", "/output")
+    os.makedirs(out_dir, exist_ok=True)
+    Path(out_dir, "entry.txt").write_text(build_entry(), encoding="utf-8")
 
 
 if __name__ == "__main__":
