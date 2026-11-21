@@ -1,8 +1,7 @@
-# night train — faces in the window glass.
+# entry: night train, faces in glass
 import os
-from pathlib import Path
 
-LINES = [
+VERSES = (
     "Your cheek rests on your mother's sleeve.",
     "The train rocks. The train hums.",
     "In the black glass, your faces drift",
@@ -12,17 +11,20 @@ LINES = [
     "before the river cut the stone,",
     "and the window holds you both",
     "floating across it.",
-]
+)
 
 
-def build_entry():
-    return "\n".join(LINES)
+def compose_entry():
+    return "\n".join(VERSES)
 
 
 def main():
     out_dir = os.environ.get("ENTRY_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
-    Path(out_dir, "entry.txt").write_text(build_entry(), encoding="utf-8")
+    path = os.path.join(out_dir, "entry.txt")
+    text = compose_entry()
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(text)
 
 
 if __name__ == "__main__":
