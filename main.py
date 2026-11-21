@@ -15,9 +15,11 @@ TEXT = (
     "You lie on the roof mat beside your father.\n"
     "His arm is your pillow.\n"
     "The tiles still hold the day's heat.\n"
-    "A star falls. He makes no wish. He just watches,\n"
-    "the way his father watched, and his father's father.\n"
-    "Its light set out before this village had a name.\n"
+    "A star falls. No wish. He watches.\n"
+    "The sky keeps opening.\n"
+    "Its light set out before this village had a name,\n"
+    "before the roof, before the mat,\n"
+    "and it is still arriving.\n"
 )
 
 
